@@ -11,9 +11,9 @@ def create_superuser(sender, **kwargs):
     if not User.objects.filter(is_superuser=True).exists():
             User.objects.create_superuser(
                 name='Admin',
-                username='admin',
-                email='admin@example.com',
-                password='admin',
+                username='admin@admin.com',
+                email='admin@admin.com',
+                password='admin@admin.com',
                 user_level='admin',
                 client= client
             )

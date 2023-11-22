@@ -1,4 +1,3 @@
-
 from rest_framework.response import Response
 from users.permissions import IsAdminOrReadOnly, IsAdminOrUser
 from .models import User

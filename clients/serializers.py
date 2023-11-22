@@ -1,10 +1,12 @@
 from rest_framework import serializers
 from users.serializers import UserSerializer
+from patients.serializers import PatientSerializer
 from .models import Client
 
 
 class ClientSerializer(serializers.ModelSerializer):
     users = UserSerializer(many=True, read_only=True)
+    patients = PatientSerializer(many=True, read_only=True)
 
     class Meta:
         model = Client
@@ -22,4 +24,5 @@ class ClientSerializer(serializers.ModelSerializer):
             "updated_at",
             "active",
             "users",
+            "patients",
         ]
