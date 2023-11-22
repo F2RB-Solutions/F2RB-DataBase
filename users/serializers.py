@@ -9,13 +9,13 @@ class UserSerializer(serializers.ModelSerializer):
     def create(self, validated_data: dict) -> User:
         if validated_data["user_level"] == "admin":
             return User.objects.create_superuser(**validated_data)
-
+        
         created = User.objects.create_user(**validated_data)
 
         email = EmailMessage(
-            subject="Bem vindo a FRB Consultoria",
-            body = f"Olá {created.name}.\n\nObrigado por fazer parte da FRB consultoria!\n\nSua conta foi gerada automaticamente em nosso site. Para acessá-la e definir uma senha, clique no link abaixo:\n\nhttps://frbconsultoria.com.br/redefinirsenha/{created.id}",
-            from_email=f"FRB consultoria {'<contatofrb@frbconsultoria.com.br>'}",
+            subject="Bem vindo a F2RB Solutions",
+            body = f"Olá {created.name}.\n\nObrigado por fazer parte da F2RB Solutions!\n\nSua conta foi gerada automaticamente em nosso site. Para acessá-la e definir uma senha, clique no link abaixo:\n\nhttps://f2rbsolutions.com.br/redefinirsenha/{created.id}",
+            from_email=f"F2RB Solutions{'<contato@f2rbsolutions.com.br>'}",
             to=[f"{created.email}"],
             headers={"Importance": "High"},
         )
@@ -41,10 +41,13 @@ class UserSerializer(serializers.ModelSerializer):
             "username",
             "email",
             "password",
+            "description",
             "user_level",
             "power_bi_link",
             "is_superuser",
-            "description",
+            "tel",
+            "cpf",
+            "coren",
             "created_at",
             "updated_at",
             "client_id",
