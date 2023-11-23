@@ -104,6 +104,7 @@ DATABASES = {
         "PORT": os.getenv("POSTGRES_DB_PORT"),
     }
 }
+
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
 
 # Password validation
@@ -169,7 +170,7 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173"
 ]
 
-# CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOW_ALL_ORIGINS = True
 
 AWS_ACCESS_KEY_ID = 'AKIA2MYUCHPGAXX5CS5E'
 AWS_SECRET_ACCESS_KEY = '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'
