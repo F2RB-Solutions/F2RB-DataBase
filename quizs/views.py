@@ -9,9 +9,9 @@ from users.models import User
 from patients.models import Patient
 
 class QuizsView(generics.ListCreateAPIView):
-    authentication_classes = [JWTAuthentication]
-    permission_classes = [IsAdminOrProfessional]
-    queryset = Quiz.objects.all().order_by('regular_medication')
+    # authentication_classes = [JWTAuthentication]
+    # permission_classes = [IsAdminOrProfessional]
+    queryset = Quiz.objects.all().order_by('select_corresponding_unit')
     serializer_class = QuizSerializer
 
     def perform_create(self, serializer):
@@ -22,8 +22,8 @@ class QuizsView(generics.ListCreateAPIView):
         serializer.save(user=user, patient=patient)
 
 class QuizsDetailView(generics.RetrieveUpdateDestroyAPIView):
-    authentication_classes = [JWTAuthentication]
-    permission_classes = [IsAuthenticated, IsAdminOrProfessional]
+    # authentication_classes = [JWTAuthentication]
+    # permission_classes = [IsAuthenticated, IsAdminOrProfessional]
     queryset = Quiz.objects.all()
     serializer_class = QuizSerializer
 

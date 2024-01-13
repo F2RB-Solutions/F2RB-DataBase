@@ -53,6 +53,8 @@ INSTALLED_APPS = [
     "breathalyzerBatchs",
     "breathalyzerTests",
     "quizs",
+    "pressureMonitor",
+    "pressureMonitorBatchs",
     "rest_framework",
     "drf_spectacular",
 ]
