@@ -19,7 +19,6 @@ class PatientSerializer(serializers.ModelSerializer):
             "date_birth",
             "email",
             "tel",
-            "cep",
             "created_at",
             "updated_at",
             "active",
@@ -29,6 +28,10 @@ class PatientSerializer(serializers.ModelSerializer):
             "breathalyzerTests",           
         ]
         extra_kwargs = {
+            'role': {'allow_blank': True},
+            'date_birth': {'allow_blank': True},
+            'email': {'allow_blank': True},
+            'tel': {'allow_blank': True},
             "client": {"read_only": False},
             "email": {
                 "validators": [
