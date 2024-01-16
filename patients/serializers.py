@@ -33,12 +33,12 @@ class PatientSerializer(serializers.ModelSerializer):
             'email': {'allow_blank': True},
             'tel': {'allow_blank': True},
             "client": {"read_only": False},
-            "email": {
-                "validators": [
-                    UniqueValidator(
-                        queryset=Patient.objects.all(),
-                        message="A user with that email already exists.",
-                    )
-                ]
-            },
+            # "email": {
+            #     "validators": [
+            #         UniqueValidator(
+            #             queryset=Patient.objects.all(),
+            #             message="A user with that email already exists.",
+            #         )
+            #     ]
+            # },
         }
