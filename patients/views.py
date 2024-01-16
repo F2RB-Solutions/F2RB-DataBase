@@ -8,7 +8,7 @@ from django.shortcuts import get_object_or_404
 from rest_framework.response import Response
 
 class PatientsView(generics.ListCreateAPIView):
-    authentication_classes = [JWTAuthentication]
+    # authentication_classes = [JWTAuthentication]
     queryset = Patient.objects.all().order_by('username')
     serializer_class = PatientSerializer
 
@@ -18,8 +18,8 @@ class PatientsView(generics.ListCreateAPIView):
         serializer.save(client=client)
 
 class PatientsDetailView(generics.RetrieveUpdateDestroyAPIView):
-    authentication_classes = [JWTAuthentication]
-    permission_classes = [IsAuthenticated]
+    # authentication_classes = [JWTAuthentication]
+    # permission_classes = [IsAuthenticated]
     queryset = Patient.objects.all()
     serializer_class = PatientSerializer
 
