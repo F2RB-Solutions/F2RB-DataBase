@@ -169,7 +169,8 @@ AUTH_USER_MODEL = "users.User"
 
 
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:5173"
+    "http://localhost:5173",
+    'https://f2rbsolutions.com.br'
 ]
 
 CORS_ALLOW_ALL_ORIGINS = True
