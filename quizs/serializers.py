@@ -36,6 +36,7 @@ class QuizSerializer(serializers.ModelSerializer):
             "consumed_drugs",
             "prefer_consumed_drugs",
             "description_consumed_drugs",
+            "approve_initiative",
             "standard_about",
             "created_at",
             "updated_at",

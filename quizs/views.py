@@ -1,4 +1,4 @@
-from rest_framework import generics
+from rest_framework import generics, serializers
 from .models import Quiz
 from rest_framework_simplejwt.authentication import JWTAuthentication
 from .serializers import QuizSerializer
@@ -7,7 +7,7 @@ from .permissions import IsAdminOrProfessional
 from django.shortcuts import get_object_or_404
 from users.models import User
 from patients.models import Patient
-
+from django.utils import timezone
 class QuizsView(generics.ListCreateAPIView):
     # authentication_classes = [JWTAuthentication]
     # permission_classes = [IsAdminOrProfessional]
@@ -19,6 +19,15 @@ class QuizsView(generics.ListCreateAPIView):
         user = get_object_or_404(User, pk=user_id)
         patient_id = self.request.data["patient_id"]
         patient = get_object_or_404(Patient, pk=patient_id)
+
+        
+        if Quiz.objects.filter(
+            patient=patient,
+            created_at__gte=timezone.now() - timezone.timedelta(hours=16),
+        ).exists():
+        
+            raise serializers.ValidationError("Usuário já fez um questionário nas últimas 16 horas.")
+
         serializer.save(user=user, patient=patient)
 
 class QuizsDetailView(generics.RetrieveUpdateDestroyAPIView):

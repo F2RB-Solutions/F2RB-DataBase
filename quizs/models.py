@@ -33,6 +33,7 @@ class Quiz(models.Model):
     consumed_drugs = models.BooleanField()
     prefer_consumed_drugs = models.CharField(null=True,max_length=150)
     description_consumed_drugs = models.CharField(null=True,max_length=150) 
+    approve_initiative = models.BooleanField()
     standard_about = models.CharField(null=True,max_length=150)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
