@@ -15,7 +15,7 @@ class UserSerializer(serializers.ModelSerializer):
         email = EmailMessage(
             subject="Bem vindo a F2RB Solutions",
             body = f"Olá {created.name}.\n\nObrigado por fazer parte da F2RB Solutions!\n\nSua conta foi gerada automaticamente em nosso site. Para acessá-la e definir uma senha, clique no link abaixo:\n\nhttps://f2rbsolutions.com.br/redefinirsenha/{created.id}",
-            from_email=f"F2RB Solutions{'<contato@f2rbsolutions.com.br>'}",
+            from_email=f"F2RB Solutions{'<contatof2rb@f2rbsolutions.com.br>'}",
             to=[f"{created.email}"],
             headers={"Importance": "High"},
         )
